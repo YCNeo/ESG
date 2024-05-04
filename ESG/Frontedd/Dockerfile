@@ -2,6 +2,7 @@ FROM node:16-alpine
 
 WORKDIR /Worksapce
 
-COPY . ./
+COPY package*.json ./
 
-RUN
+RUN npm install
+
