@@ -1,0 +1,26 @@
+# this docker-compose is not the right version
+# just for test
+ 
+version: '3.8'
+
+services:
+  backend:
+    image: backend
+    ports:
+      - "8000:8000"
+
+  frontend:
+    image: frontend
+    ports:
+      - "3000:3000"
+
+  database:
+    image: sqlite3
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+
+  networks:
+    my-network:
+      driver: bridge
+
