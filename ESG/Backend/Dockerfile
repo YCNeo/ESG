@@ -4,4 +4,8 @@ WORKDIR /Worksapce
 
 COPY . ./
 
-RUN 
+RUN pip install -r requirements.txt
+
+EXPOSE 8000
+
+CMD ["python", "server.py"]

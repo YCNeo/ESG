@@ -1,4 +1,4 @@
-FROM node:16-alpine
+FROM node:20.12.2
 
 WORKDIR /Worksapce
 
@@ -8,3 +8,6 @@ RUN npm install
 
 COPY . ./
 
+EXPOSE 8080
+
+CMD ["node", "app.js"]
