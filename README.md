@@ -8,9 +8,9 @@
 <details>
     <summary><b>FrontEnd</b></summary>
 
-* Language: $\color{green}{\textsf{Node.js}}$
+<!-- * Language: $\color{green}{\textsf{Node.js}}$ -->
 * Language: <code style = "color: green"><b><i>Node.js</i></b></code>
-* Language: <span style = "color: green"><b><i>Node.js</i></b></span>
+<!-- * Language: <span style = "color: green"><b><i>Node.js</i></b></span> -->
 * Framework: <span style="color:purple"><b><i>React Native</i></b></summary>
 * necessary: package.json
 * github:
@@ -21,7 +21,7 @@
 <details>
     <summary><b>BackEnd</b></summary>
 
-* Language: <span style="color:green;"><b><i>python</i></b></span>
+* Language: <code style = "color: green"><b><i>python</i></b></code>
 * Framework: <span style="color:purple;"><b><i>python Native API</i></b></span>
 * necessary: requirement.txt
 * github: 
@@ -33,7 +33,7 @@
 <summary><b>BlockChain</b></summary>
 
 * using <b><i>VM</i></b> instead of docker
-* Language: <span style="color:green;"><b><i>go</i></b></span>
+* Language: <code style = "color: green"><b><i>go</i></b></code>
 * Framework: <span style="color:purple;"><b><i>Hyperledger fabric</b></i></span>
 * github:
    
