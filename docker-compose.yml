@@ -15,7 +15,7 @@ services:
       - "3000:3000"
 
   database:
-    image: sqlite3
+    image: MySQL:latest
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mydatabase
