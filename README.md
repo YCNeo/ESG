@@ -3,18 +3,22 @@
 ## Instruction
 
 <!-- FrontEnd -->
-<details>
-    <summary><b>FrontEnd</b></summary>
+<!-- <details>
+    <summary><b>FrontEnd</b></summary> -->
+
+### FrontEnd
 
 * Language: <code style = "color: green"><b><i>Node.js</i></b></code>
 * Framework: <span style = "color:purple"><b><i>React Native</i></b></summary>
 * necessary: package.json
 
-</details> 
+<!-- </details>  -->
 
 <!-- BackEnd -->
-<details>
-    <summary><b>BackEnd</b></summary>
+<!-- <details>
+    <summary><b>BackEnd</b></summary> -->
+
+### BackEnd
 
 * API
   * Language: <code style = "color: green"><b><i>python</i></b></code>
@@ -24,19 +28,23 @@
   * Tool: <span style = "color:purple;"><b><i>MySQL</i></b></span>
   * necessary: /etc/my.cnf
   
-</details>
+<!-- </details> -->
 
 <!-- Blockchain -->
-<details>
-<summary><b>BlockChain</b></summary>
+<!-- <details>
+<summary><b>BlockChain</b></summary> -->
+
+### BlockChain
 
 * using <b><i>VM</i></b> instead of docker
 * Language: <code style = "color: green"><b><i>go</i></b></code>
 * Framework: <span style = "color:purple;"><b><i>Hyperledger fabric</b></i></span>
    
-</details>
+<!-- </details> -->
 
 ## Collabration Requirements
+* swagger: 
+
 <details>
     <summary>function list</summary>
 
@@ -45,8 +53,6 @@
  | example       | for test    | name(char(52))   | birth date(date) | x      |
 
 </details>
-
-* swagger: 
 
 ## References
 * Hyperledger: https://github.com/hyperledger/fabric-samples
