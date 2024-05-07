@@ -2,8 +2,6 @@
 
 ## Instruction
 
-
-
 <!-- FrontEnd -->
 <details>
     <summary><b>FrontEnd</b></summary>
