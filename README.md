@@ -9,8 +9,8 @@
     <summary><b>FrontEnd</b></summary>
 
 <!-- * Language: $\color{green}{\textsf{Node.js}}$ -->
-* Language: <code style = "color: green"><b><i>Node.js</i></b></code>
 <!-- * Language: <span style = "color: green"><b><i>Node.js</i></b></span> -->
+* Language: <code style = "color: green"><b><i>Node.js</i></b></code>
 * Framework: <span style="color:purple"><b><i>React Native</i></b></summary>
 * necessary: package.json
 * github:
