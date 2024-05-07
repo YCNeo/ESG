@@ -8,7 +8,7 @@
 <details>
     <summary><b>FrontEnd</b></summary>
 
-* Language: <code style = "color: green"><b><i>Node.js</i></b></code>
+* Language: $${\color{green}Node.js}$$
 * Framework: <span style="color:purple"><b><i>React Native</i></b></summary>
 * necessary: package.json
 * github:
