@@ -1,12 +1,5 @@
 # ESG
 
-<!-- <details>
-    <summary>Overview</summary> -->
-
-[toc]
-    
-<!-- </details> -->
-
 ## Instruction
 
 ### FrontEnd
