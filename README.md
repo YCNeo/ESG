@@ -9,9 +9,8 @@
 <!-- * Language: $\color{green}{\textsf{Node.js}}$ -->
 <!-- * Language: <span style = "color: green"><b><i>Node.js</i></b></span> -->
 * Language: <code style = "color: green"><b><i>Node.js</i></b></code>
-* Framework: <span style="color:purple"><b><i>React Native</i></b></summary>
+* Framework: <span style = "color:purple"><b><i>React Native</i></b></summary>
 * necessary: package.json
-* github:
 
 </details> 
 
@@ -19,10 +18,13 @@
 <details>
     <summary><b>BackEnd</b></summary>
 
-* Language: <code style = "color: green"><b><i>python</i></b></code>
-* Framework: <span style="color:purple;"><b><i>python Native API</i></b></span>
-* necessary: requirement.txt
-* github: 
+* API
+  * Language: <code style = "color: green"><b><i>python</i></b></code>
+  * Framework: <span style = "color:purple;"><b><i>Djungle</i></b></span>
+  * necessary: requirement.txt
+* DB
+  * Tool: <span style="color:purple;"><b><i>MySQL</i></b></span>
+  * dockerfile
   
 </details>
 
@@ -33,13 +35,20 @@
 * using <b><i>VM</i></b> instead of docker
 * Language: <code style = "color: green"><b><i>go</i></b></code>
 * Framework: <span style="color:purple;"><b><i>Hyperledger fabric</b></i></span>
-* github:
    
 </details>
 
 ## Collabration Requirements
-``` 
-```
+<details>
+    <summary>function list</summary>
+
+ |function name|description|input name(type)|ouput name(type)|
+ |-|-|-|-|
+ |example|for test|name(char(52))|date(date)|
+
+</details>
+
+* swagger: 
 
 ## References
 * Hyperledger: https://github.com/hyperledger/fabric-samples
