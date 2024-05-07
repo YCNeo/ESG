@@ -1,46 +1,31 @@
 # ESG
 
+> NCCU Topic ESG
+
 ## Instruction
 
-<!-- FrontEnd -->
-<!-- <details>
-    <summary><b>FrontEnd</b></summary> -->
 
 ### FrontEnd
-
-* Language: <code style = "color: green"><b><i>Node.js</i></b></code>
-* Framework: <span style = "color:purple"><b><i>React Native</i></b></summary>
+* Language: `Node.js`
+* Framework: ***React Native***
 * necessary: package.json
 
-<!-- </details>  -->
-
-<!-- BackEnd -->
-<!-- <details>
-    <summary><b>BackEnd</b></summary> -->
 
 ### BackEnd
-
 * API
-  * Language: <code style = "color: green"><b><i>python</i></b></code>
-  * Framework: <span style = "color:purple;"><b><i>Djungle</i></b></span>
+  * Language: `python`
+  * Framework: __Djungle__
   * necessary: requirement.txt
 * DB
-  * Tool: <span style = "color:purple;"><b><i>MySQL</i></b></span>
+  * Tool: ***MySQL***
   * necessary: /etc/my.cnf
-  
-<!-- </details> -->
 
-<!-- Blockchain -->
-<!-- <details>
-<summary><b>BlockChain</b></summary> -->
 
 ### BlockChain
+* using ***VM*** or ***Docker*** ?
+* Language: `go`
+* Framework: __Hyperledger fabric__
 
-* using <b><i>VM</i></b> instead of docker
-* Language: <code style = "color: green"><b><i>go</i></b></code>
-* Framework: <span style = "color:purple;"><b><i>Hyperledger fabric</b></i></span>
-   
-<!-- </details> -->
 
 ## Collabration Requirements
 * swagger: 
@@ -58,3 +43,4 @@
 * Hyperledger: https://github.com/hyperledger/fabric-samples
 * docker: https://docs.google.com/presentation/d/1BdtUhk5EEsdc0S6lieSb74vdxuhrK0_zKRcTfe825Wk/edit?usp=sharing
 * MySQL dockerfile: https://ithelp.ithome.com.tw/articles/10340991
+* Basic writing and formatting syntax: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
