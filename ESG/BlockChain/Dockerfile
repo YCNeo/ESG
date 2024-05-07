@@ -1,1 +1,0 @@
-FROM Hyperlegder/client-go
