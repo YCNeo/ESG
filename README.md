@@ -24,7 +24,7 @@
 
 ### BlockChain
 * using ***VM*** or ***Docker*** ?
-* Language  [`go`](https://go.dev/doc/effective_go)
+* Language  [`Solidity`](https://go.dev/doc/effective_go)
 * Framework [__Hyperledger fabric__](https://github.com/hyperledger/fabric)
 
 
