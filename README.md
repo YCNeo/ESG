@@ -9,6 +9,7 @@
 * Language  [`Node.js`](https://nodejs.org/docs/latest/api/)
 * Framework [***React***](https://react.dev/reference/react)
 * necessary `package.json`
+* [**Figma**]()
 
 
 ### BackEnd
@@ -32,7 +33,7 @@
 * [Function List](Function_List.md)
 * commit syntax
   * feat(scope): commit message
-    eg. feat(login): wireframe
+    eg. `feat(login): wireframe`
     ![alt text](commit_syntax.png)
 
 ## References
@@ -43,7 +44,7 @@
 * [go](https://go.dev/doc/effective_go)
 * [Node.js](https://nodejs.org/docs/latest/api/)
 * [python 3.9](https://docs.python.org/3.9/)
-* [React Native](https://react.dev/reference/react)
+* [React](https://react.dev/reference/react)
 * [Djungle](https://docs.djangoproject.com/en/5.0/)
 * [MySQL](https://dev.mysql.com/doc/)
 * [MySQL dockerfile](https://ithelp.ithome.com.tw/articles/10340991)
