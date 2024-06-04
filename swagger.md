@@ -32,6 +32,11 @@
 | Delete      | x                                                                                                      | success, fail                            | B       | ------ |
 | Retrive     | `EID(string)` or `PID(string)` or `region(char(2))` or `name(string)`                                  | `employees(List)`                        | B       | ------ |
 
-# Menber
+# Member
+
+| API purpoes | Input(type)                        | Ouput(type)   | Trigger | Remark |
+| ----------- | ---------------------------------- | ------------- | ------- | ------ |
+|  | ---------------------------------- | ------------- | ------- | ------ |
+
 
 # Flow
