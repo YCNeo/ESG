@@ -3,13 +3,13 @@
 > ___NCCU Project ESG___
 
 ## Instruction
-
+* [meeting record](https://www.notion.so/carbon-c5fb74f4e603481fa5678fa39fa2badb?pvs=4)
 
 ### FrontEnd
 * Language  [`Node.js`](https://nodejs.org/docs/latest/api/)
 * Framework [***React***](https://react.dev/reference/react)
 * necessary `package.json`
-* [**Figma**]()
+* [**Figma**](https://www.figma.com/design/b0SW4c7fyhuYWCqMEQVUiD/Carbon-project?node-id=0-1&t=5wOr5Q9wwcaGvWTJ-1)
 
 
 ### BackEnd
