@@ -38,11 +38,10 @@
  ## PPE
  <!-- Equipment -->
 
- | Function name | Description                           | Input(type) | Ouput(type) | Trigger      | Remark |
- | ------------- | ------------------------------------- | ----------- | ----------- | ------------ | ------ |
- | Equipment     | SF-New equipment, SF-Disposal, SF-Age | ----------- | ----------- | ------------ | ------ |
- | Coefficient   | ---------------------                 | ----------- | ----------- | ------------ | ------ |
- |               | ---------------------                 | ----------- | ----------- | ------------ | ------ |
+ | Function name | Description                               | Input(type) | Ouput(type) | Trigger      | Remark |
+ | ------------- | ----------------------------------------- | ----------- | ----------- | ------------ | ------ |
+ | Equipment     | SF-New equipment, SF-Disposal, SF-Retrive | ----------- | ----------- | ------------ | ------ |
+ | Material      | SF-New Material, SF-Disposal, SF-Retrive  | ----------- | ----------- | ------------ | ------ |
 
 
  ## Statement
