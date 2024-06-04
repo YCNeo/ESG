@@ -37,7 +37,21 @@
 | API purpoes | Input(type)                        | Ouput(type)   | Trigger | Remark |
 | ----------- | ---------------------------------- | ------------- | ------- | ------ |
 |  | ---------------------------------- | ------------- | ------- | ------ |
+|  | ---------------------------------- | ------------- | ------- | ------ |
+
 
 
 # Flow
 | -----test
+
+
+
+
+git clone  
+git add .
+git commit -m ""
+git push
+git log
+git branch
+git checkout
+git status
