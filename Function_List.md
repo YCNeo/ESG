@@ -1,51 +1,50 @@
 # FUNCTION LIST
 
 <!-- TODO: discussion between frontend and backend -->
- | Function name      | Description           | Input(type) | Ouput(type) | Trigger      | Remark |
- | ------------------ | --------------------- | ----------- | ----------- | ------------ | ------ |
- | Login              | Unit login            | string      | success ?   | login button | x      |
- | Admin              | highest access manage | ----------- | ----------- | ------------ | ------ |
- | Project Management | -----------           | ----------- | ----------- | ------------ | ------ |
- | PPE                | -----------           | ----------- | ----------- | ------------ | ------ |
- | Statement          | -----------           | ----------- | ----------- | ------------ | ------ |
+ | Function name      | Description           | Remark |
+ | ------------------ | --------------------- | ------ |
+ | Login              | Unit login            | x      |
+ | Admin              | highest access manage | x      |
+ | Project Management | -----------           | x      |
+ | PPE                | -----------           | x      |
+ | Statement          | -----------           | x      |
 
 
  # SubFunction
  ## Admin
- | Function name     | Description                     | Input(type) | Ouput(type) | Trigger      | Remark |
- | ----------------- | ------------------------------- | ----------- | ----------- | ------------ | ------ |
- | Create User       | page for differnt user(not now) | ----------- | ----------- | ------------ | ------ |
- | Access Assignment | ---------------------           | ----------- | ----------- | ------------ | ------ |
- | Create Project    | ---------------------           | ----------- | ----------- | ------------ | ------ |
- | Approve           | ---------------------           | ----------- | ----------- | ------------ | ------ |
- | Employee          | ---------------------           | ----------- | ----------- | ------------ | ------ |
- |                   | ---------------------           | ----------- | ----------- | ------------ | ------ |
+ | Function name     | Description                     | Remark |
+ | ----------------- | ------------------------------- | ------ |
+ | Create User       | page for differnt user(not now) | x      |
+ | Access Assignment | ---------------------           | x      |
+ | Create Project    | ---------------------           | x      |
+ | Approve           | ---------------------           | x      |
+ | Employee          | ---------------------           | x      |
 
 
  ## Project Management
 
- | Function name | Description                            | Input(type) | Ouput(type) | Trigger      | Remark |
- | ------------- | -------------------------------------- | ----------- | ----------- | ------------ | ------ |
- | Member        | ---------------------                  | ----------- | ----------- | ------------ | ------ |
- | Flow          | SF-Revise, SF-Design                   | ----------- | ----------- | ------------ | ------ |
- | Material      | ---------------------                  | ----------- | ----------- | ------------ | ------ |
- | Equipment     | -------------------------------------- | ----------- | ----------- | ------------ | ------ |
- | Daily Record  | page: SF-Revise record, SF-Post record | ----------- | ----------- | ------------ | ------ |
- | Statement     | -------------------------------------- | ----------- | ----------- | ------------ | ------ |
- | ------------- | -------------------------------------- | ----------- | ----------- | ------------ | ------ |
+ | Function name | Description                            | Remark |
+ | ------------- | -------------------------------------- | ------ |
+ | Member        | ---------------------                  | x      |
+ | Flow          | SF-Revise, SF-Design                   | x      |
+ | Material      | ---------------------                  | x      |
+ | Equipment     | -------------------------------------- | x      |
+ | Daily Record  | page: SF-Revise record, SF-Post record | x      |
+ | Statement     | -------------------------------------- | x      |
+ | ---------     | -------------------------------------- | x      |
 
 
  ## PPE
  <!-- Equipment -->
 
- | Function name | Description                               | Input(type) | Ouput(type) | Trigger      | Remark |
- | ------------- | ----------------------------------------- | ----------- | ----------- | ------------ | ------ |
- | Equipment     | SF-New equipment, SF-Disposal, SF-Retrive | ----------- | ----------- | ------------ | ------ |
- | Material      | SF-New Material, SF-Disposal, SF-Retrive  | ----------- | ----------- | ------------ | ------ |
+ | Function name | Description                               | Remark |
+ | ------------- | ----------------------------------------- | ------ |
+ | Equipment     | SF-New equipment, SF-Disposal, SF-Retrive | x      |
+ | Material      | SF-New Material, SF-Disposal, SF-Retrive  | x      |
 
 
  ## Statement
 
- | Function name    | Description           | Input(type) | Ouput(type) | Trigger      | Remark |
- | ---------------- | --------------------- | ----------- | ----------- | ------------ | ------ |
- | Export Statement | --------------------- | ----------- | ----------- | ------------ | ------ |
+ | Function name    | Description           | Remark |
+ | ---------------- | --------------------- | ------ |
+ | Export Statement | --------------------- | x      |
