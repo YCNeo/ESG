@@ -13,7 +13,7 @@
 
 
 ### BackEnd
-* API
+* Server
   * Language  [`python 3.9`](https://docs.python.org/3.9/)
   * Framework [***Djungle***](https://docs.djangoproject.com/en/5.0/)
   * necessary `requirement.txt`
@@ -29,12 +29,12 @@
 
 
 ## Collabration Requirements
-* [swagger](swagger)
-* [Function List](Function_List.md)
+* [swagger](doc\swagger.md)
+* [Function List](doc\function_list.md)
 * commit syntax
   * feat(scope): commit message
     eg. `feat(login): wireframe`
-    ![alt text](commit_syntax.png)
+    ![commit_syntax](doc\commit_syntax.png)
 
 ## References
 * [Hyperledger](https://github.com/hyperledger/fabric-samples)
