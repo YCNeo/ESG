@@ -1,17 +1,19 @@
 # FUNCTION LIST
 
 <!-- discussion between frontend and backend -->
- | Function name      | Description                            | Remark |
- | ------------------ | -------------------------------------- | ------ |
- | Login              | Unit login                             | x      |
- | Admin              | highest access manage                  | x      |
- | Project Management | -----------                            | x      |
- | PPE                | Detail of Equipment and Material       | x      |
- | Statement          | global scope information of enterprise | x      |
+ | Function name      | Description                                      | Remark |
+ | ------------------ | ------------------------------------------------ | ------ |
+ | Login              | Unit login                                       | x      |
+ | Admin              | highest access manage                            | x      |
+ | Project Management | -----------                                      | x      |
+ | PPE                | Detail of Equipment and Material                 | x      |
+ | Statement          | global scope information of enterprise           | x      |
+ | ESG*               | (admin access)Boundary, source, stats, statement | ------ |
 
 
  # SubFunction
- ## Admin
+ ## Admin*
+ <!-- TODO -->
  | Function name     | Description                     | Remark |
  | ----------------- | ------------------------------- | ------ |
  | Create User       | page for differnt user(not now) | x      |
@@ -19,6 +21,7 @@
  | Create Project    | ---------------------           | x      |
  | Approve           | ---------------------           | x      |
  | Employee          | ---------------------           | x      |
+ | history log       | ------------------------------- | ------ |
 
 
  ## Project Management
@@ -33,6 +36,7 @@
  | Statement     | local scope information of project         | x      |
 
 
+<!-- TODO: Revise after reading paper -->
  ## PPE
  <!-- Equipment -->
 
@@ -48,3 +52,14 @@
  | ------------- | --------------------- | ------ |
  | Retrive       | --------------------- | x      |
  | Export        | --------------------- | x      |
+
+
+<!-- TODO -->
+ ## ESG*
+ 
+ | Function name | Description    | Remark |
+ | ------------- | -------------- | ------ |
+ | Post          | Unit: Boundary | ------ |
+ | Delete        | Unit: Boundary | ------ |
+ | Revies        | Unit: Boundary | ------ |
+ | Retrive       | Unit: Boundary | ------ |
