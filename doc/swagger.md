@@ -1,7 +1,9 @@
 #### Login 
-| API purpoes | Input(type)                        | Ouput(type)   | Tri | Remark |
-| ----------- | ---------------------------------- | ------------- | --- | ------ |
-| Login       | `user(string)`, `Password(string)` | Success, Fail | B   | x      |
+| API purpoes     | Input(type)                                                        | Ouput(type)   | Tri | Remark |
+| --------------- | ------------------------------------------------------------------ | ------------- | --- | ------ |
+| Login           | `user(string)`, `Password(string)`                                 | Success, Fail | B   | x      |
+| Revise psaaword | `UID(sting)`, `old pw(string)`, `new pw(string)`, `new pw(string)` | success, fail | B   | x      |
+
 
 
 # Admin
@@ -32,7 +34,7 @@
 | Post        | `name(string)`, `gender(int)`, `phone(string)`, `mail(string)`, `region(char(2))`, `pID(default NULL)`                | success(ID(string)), fail(return reason) | B   | x              |
 | Revise      | `EID(atring)`, `name(string)`, `gender(int)`, `phone(string)`, `mail(string)`, `region(char(2))`, `pID(default NULL)` | success, fail(return reason)             | B   | x              |
 | Delete      | `EID(string)`, `name(string)`                                                                                         | success, fail                            | B   | mark as delete |
-| Retrive     | `EID(string)` or `PID(string)` or `region(char(2))` or `name(string)`                                                 | `employees(List)`                        | B   | x              |
+| retrieve    | `EID(string)` or `PID(string)` or `region(char(2))` or `name(string)`                                                 | `employees(List)`                        | B   | x              |
 
 
 #### History log
@@ -48,7 +50,7 @@
 | Post        | `EID(string)`, `Position(string)`                     | success, fail  | B   | x      |
 | Revise      | `EID(string)`, `Position(string)`                     | success, fail  | B   | x      |
 | Remove      | `EID(string)`                                         | success, fail  | B   | x      |
-| Retrive     | `EID(string)` or `name(string)` or `position(string)` | `member(List)` | B   | x      |
+| retrieve    | `EID(string)` or `name(string)` or `position(string)` | `member(List)` | B   | x      |
 
 
 #### Flow
@@ -63,7 +65,7 @@
 | ----------- | --------------------------------------------- | ---------------------------- | --- | ------ |
 | Post        | `name(string)`, `amount(int)`, `Unit(number)` | success(return detail), fail | B   | x      |
 | Revise      | `MID(string)`, `amount(int)`, `Unit(number)`  | success, fail                | B   | x      |
-| Retrive     | `name(string)`                                | Material(List)               | B   | x      |
+| retrieve    | `name(string)`                                | Material(List)               | B   | x      |
 
 
 #### Equipment
@@ -71,58 +73,80 @@
 | ----------- | --------------------------------------------- | --------------------- | --- | ------ |
 | Post        | `name(string)`, `amount(int)`, `Unit(number)` | success(detail), fail | B   | x      |
 | Remove      | `name(string)`, `amount(int)`, `Unit(number)` | success, fail         | B   | x      |
-| Retrive     | `name(string)`                                | Equipment(List)       | B   | x      |
+| retrieve    | `name(string)`                                | Equipment(List)       | B   | x      |
 
 
 #### Daily Record
 | API purpoes | Input(type)                                                                                                                                             | Ouput(type)          | Tri | Remark |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --- | ------ |
 | Post        | `date(date)`, `Equipment(string)`, `Material(string)`, `EQMamount(int)`, `EQMUnit(number)`,`MATamount(int)`, `MATUnit(number)` , `runtime(int)_unit:hr` | success(detil), fail | B   | x      |
-| Revise      | `date(date)`, `Equipment(string)`, `Material(string)`, `EQMamount(int)`, `EQMUnit(number)`,`MATamount(int)`, `MATUnit(number)` , `runtime(int)_unit:hr` | success(detil), fail | B   | x      |
-| Retrive     | `date(date)`                                                                                                                                            | Record(List)         | B   | x      |
+| Revise      | `date(date)`, `Equipment(string)`, `Material(string)`, `EQMamount(int)`, `EQMUnit(number)`, `MATamount(int)`, `MATUnit(number)`, `runtime(int)_unit:hr` | success(detil), fail | B   | x      |
+| retrieve    | `date(date)`                                                                                                                                            | Record(List)         | B   | x      |
 
 
 #### Statement
 | API purpoes | Input(type)                        | Ouput(type)     | Tri | Remark |
 | ----------- | ---------------------------------- | --------------- | --- | ------ |
-| Retrive     | `startDate(date)`, `endDate(date)` | embedding table | B   | x      |
+| retrieve    | `startDate(date)`, `endDate(date)` | embedding table | B   | x      |
 | export      | `table(sheet)`                     | excel or pdf    | B   | x      |
 
 
-<!-- TODO -->
-# PPE*
+# PPE
 #### Equipment
-| API purpoes   | Input(type)                                                                                                                                                     | Ouput(type)           | Tri | Remark           |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | --- | ---------------- |
-| Post          | `name(string)`, `supplier(string)`, `amount(int)`, `Unit(number)`, `coefficient(float)`, `PurchseDate(date)`, `DisposalDate(date)`, `age(int)`, `ageUnit(year)` | success(detail), fail | B   | x                |
-| Delete        | `EQID(number)`                                                                                                                                                  | success, fail         | B   | 不能提早報廢     |
-| retrive       | `EQID(number)`, `name(string)`, `supplier(string)`                                                                                                              | Equipment(List)       | B   | x                |
-| PostRepair    | `Date(date)`, `EQID(number)`                                                                                                                                    | success(detail), fail | B   | x                |
-| Repair log    | x                                                                                                                                                               | log(List)             | B   | x                |
-| Disposal list | x                                                                                                                                                               | Disposal(List)        | B   | 根據報廢日期排序 |
+| API purpoes   | Input(type)                                                                                                                                                 | Ouput(type)           | Tri | Remark           |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | --- | ---------------- |
+| Post          | `name(string)`, `supplier(string)`, `amount(int)`, `Unit(number)`, `factor(float)`, `PurchaseDate(date)`, `DisposalDate(date)`, `age(int)`, `ageUnit(year)` | success(detail), fail | B   | x                |
+| Delete        | `EQID(number)`                                                                                                                                              | success, fail         | B   | 不能提早報廢     |
+| retrieve      | `EQID(number)`, `name(string)`, `supplier(string)`                                                                                                          | Equipment(List)       | B   | x                |
+| PostRepair    | `Date(date)`, `EQID(number)`                                                                                                                                | success(detail), fail | B   | x                |
+| Repair log    | x                                                                                                                                                           | log(List)             | B   | x                |
+| Disposal list | x                                                                                                                                                           | Disposal(List)        | B   | 根據報廢日期排序 |
 
 
 #### Material
-| API purpoes   | Input(type)                                                                                                                               | Ouput(type)                  | Tri | Remark           |
-| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | --- | ---------------- |
-| Post          | `name(string)`, `Supplier(string)`, `amount(int)`, `Unit(number)`, `Coefficient(float)`, `PurchseDate(date)`, `age(int)`, `ageUnit(year)` | success(return detail), fail | B   | x                |
-| Delete        | x                                                                                                                                         | success, fail                | B   | x                |
-| Retrive       | `MID(string)`, `name(string)`, `Supplier(string)`                                                                                         | Marerial(List)               | B   | x                |
-| Disposal list | x                                                                                                                                         | Disposal(List)               | B   | 根據報廢日期排序 |
+| API purpoes   | Input(type)                                                                                                                           | Ouput(type)                  | Tri | Remark           |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | --- | ---------------- |
+| Post          | `name(string)`, `Supplier(string)`, `amount(int)`, `Unit(number)`, `factor(float)`, `PurchaseDate(date)`, `age(int)`, `ageUnit(year)` | success(return detail), fail | B   | x                |
+| Delete        | x                                                                                                                                     | success, fail                | B   | x                |
+| retrieve      | `MID(string)`, `name(string)`, `Supplier(string)`                                                                                     | Marerial(List)               | B   | x                |
+| Disposal list | x                                                                                                                                     | Disposal(List)               | B   | 根據報廢日期排序 |
 
 
 # Statement
 | API purpoes | Input(type)                                                          | Ouput(type)     | Tri | Remark |
 | ----------- | -------------------------------------------------------------------- | --------------- | --- | ------ |
-| Retrive     | `PID(multiSelect, type: number)`, `startDate(date)`, `endDate(date)` | embedding table | B   | x      |
-| exprot      | `table(sheet)`                                                       | excel or pdf    | B   | x      |
+| retrieve    | `PID(multiSelect, type: number)`, `startDate(date)`, `endDate(date)` | embedding table | B   | x      |
+| exprot      | x                                                                    | excel or pdf    | B   | x      |
 
 
-<!-- TODO: 6/18 finish -->
-# ESG*
-| API purpoes | Input(type)                                                                                        | Ouput(type) | Tri | Remark |
-| ----------- | -------------------------------------------------------------------------------------------------- | ----------- | --- | ------ |
-| Post        | `BName(string)`, `address(string)`, `Material(string)`, `Equiment(string)`, `EQCoefficient(float)` | ----------- | --- | ------ |
-| Revise      | -----------                                                                                        | ----------- | --- | ------ |
-| Delete      | -----------                                                                                        | ----------- | --- | ------ |
-| Retrive     | -----------                                                                                        | ----------- | --- | ------ |
+# ESG
+#### Boundary Edition
+| API purpoes | Input(type)                                               | Ouput(type)                        | Tri | Remark |
+| ----------- | --------------------------------------------------------- | ---------------------------------- | --- | ------ |
+| Post        | `Name(string)`, `address(string or null)`, `type(string)` | success(return BID), fair          | B   | x      |
+| Revise      | `BID(string)`, `address(string or null)`                  | success(return detail), fail(why?) | B   | x      |
+| Delete      | `BID(string)`                                             | success, fail                      | B   | x      |
+| retrieve    | `BID(string) or name(string) or type(string)`             | success(List), fail(Not found)     | B   | x      |
+
+
+#### Source
+| API purpoes | Input(type)                                                          | Ouput(type)                        | Tri | Remark |
+| ----------- | -------------------------------------------------------------------- | ---------------------------------- | --- | ------ |
+| Post        | `EName(string)`, `Form(char(2))`, `MName(.json)`, `Category(number)` | success(return detail), fail(why?) | B   | x      |
+| revise      | `EName(string)`, `Form(char(2))`, `MName(.json)`, `Category(number)` | success(return detail), fail(why?) | B   | x      |
+| delete      | `SID(string)`                                                        | success, fail                      | B   | x      |
+| retrieve    | `EName(string)`, `Form(char(2))`, `MName(.json)`, `Category(number)` | success(list), fail(Not found)     | B   | x      |
+
+
+#### statement
+| API purpoes | Input(type)                                        | Ouput(type)                    | Tri | Remark |
+| ----------- | -------------------------------------------------- | ------------------------------ | --- | ------ |
+| retrieve    | `category(number) or Form(char2) or Ename(string)` | success(embedding table), fail | B   | x      |
+| Export      | x                                                  | success(pdf), fail             | B   | x      |
+
+
+#### Audit
+| API purpoes    | Input(type) | Ouput(type)  | Tri | Remark           |
+| -------------- | ----------- | ------------ | --- | ---------------- |
+| internal audit | x           | doc draft(I) | B   | need twice check |
+| extrtnal audit | x           | doc draft(E) | B   | need twice check |

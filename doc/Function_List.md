@@ -8,12 +8,11 @@
  | Project Management | -----------                                      | x      |
  | PPE                | Detail of Equipment and Material                 | x      |
  | Statement          | global scope information of enterprise           | x      |
- | ESG*               | (admin access)Boundary, source, stats, statement | ------ |
+ | ESG                | (admin access)Boundary, source, stats, statement | ------ |
 
 
  # SubFunction
- ## Admin*
- <!-- TODO -->
+ ## Admin
  | Function name     | Description                     | Remark |
  | ----------------- | ------------------------------- | ------ |
  | Create User       | page for differnt user(not now) | x      |
@@ -36,7 +35,6 @@
  | Statement     | local scope information of project         | x      |
 
 
-<!-- TODO: Revise after reading paper -->
  ## PPE
  <!-- Equipment -->
 
@@ -54,12 +52,12 @@
  | Export        | --------------------- | x      |
 
 
-<!-- TODO -->
- ## ESG*
- 
- | Function name | Description    | Remark |
- | ------------- | -------------- | ------ |
- | Post          | Unit: Boundary | ------ |
- | Delete        | Unit: Boundary | ------ |
- | Revies        | Unit: Boundary | ------ |
- | Retrive       | Unit: Boundary | ------ |
+ ## ESG
+ > 層層遞進的側邊攔
+
+ | Function name    | Description                                        | Remark |
+ | ---------------- | -------------------------------------------------- | ------ |
+ | Boundary Edition | factory address                                    | ------ |
+ | Source           | Unit: boundary, edition of equipments or materials | ------ |
+ | Statement        | calculation and generation of statement            | ------ |
+ | audit            | internal & outside(generate doc)                   | ------ |
