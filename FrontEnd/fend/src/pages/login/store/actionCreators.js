@@ -30,3 +30,18 @@ export const login = (account, password) => {
     });
   }
 }
+
+export const revisepassword = (account, password,old_password,comfirm_new_password) => {
+  return (dispatch) => {
+    axios./*正是對接時用post*/get('/api/login.json', { account, password,old_password,comfirm_new_password }).then((res) => {
+      const result = res.data.data;
+      if (result) {
+        dispatch(changelogin(account, password,old_password,comfirm_new_password))
+      } else {
+        dispatch(failtologin());
+      }
+    }).catch(() => {
+      alert('登錄資訊獲取失敗')
+    });
+  }
+}

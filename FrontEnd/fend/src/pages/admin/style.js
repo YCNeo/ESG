@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const AdminWrapper = styled.div`
 position: relative;
+width: 100%;
+min-height: 100%;
+margin: 0 auto;
 overflow: hidden;
 `;
 
@@ -13,6 +16,7 @@ border-bottom: 1px solid gray;
 export const AdminContent = styled.div`
 overflow: hidden;
 height: 100%;
+
 `;
 
 export const AdminIndexlist = styled.div`
