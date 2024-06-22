@@ -65,20 +65,18 @@ export const Componentindex = styled.div`
 text-align: center;
 line-height: 30px;
 height: 30px;
-width: 100px;
+width: 120px;
 border-radius: 7px;
 font-size: 18px;
 background: #e0e0e0;
 float: left;
 `;
 
-export const Componentinput = styled.textarea`
-rows: 1;
-resize: none;
+export const Componentinput = styled.input`
 padding: 0 5px;
 line-height: 30px;
 height: 30px;
-width: 200px;
+width: 320px;
 border-radius: 7px;
 font-size: 18px;
 border: none;
@@ -96,7 +94,7 @@ text-align: center;
 margin: 20px 30px 0 0;
 line-height: 30px;
 height: 30px;
-width: 100px;
+width: 120px;
 border-radius: 7px;
 font-size: 18px;
 cursor: pointer;
@@ -115,3 +113,17 @@ color: red;
 }
 `;
 
+export const Adminemployeepageoption = styled.div`
+position: relative;
+float: left;
+height: 35px;
+width: 120px;
+text-align: center;
+font-size: 18px;
+line-height: 35px;
+cursor: pointer;
+background: #f0f0f0;
+&.mousein {
+  background: #e0e0e0;
+}
+`

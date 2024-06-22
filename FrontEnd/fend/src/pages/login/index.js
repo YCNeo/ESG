@@ -30,12 +30,12 @@ class Login extends Component {
           {forgetpassword ?
             <LoginBox>
               <Logintitle>修改密碼</Logintitle>
-              <Input placeholder='帳號' ref={(input) => { this.account = input }} />
+              <Input placeholder='UID' ref={(input) => { this.uid = input }} />
               <Input placeholder='原密碼' ref={(input) => { this.old_password = input }} />
               <Input placeholder='新密碼' ref={(input) => { this.new_password = input }} type='password' />
               <Input placeholder='再次確認新密碼' ref={(input) => { this.comfirm_new_password = input }} type='password' />
               <Loginforgot onClick={() => this.setState({ forgetpassword: false })}>登入</Loginforgot>
-              <Botton onClick={() => this.props.revisepassword(this.account, this.old_password, this.new_password, this.comfirm_new_password)}>確認</Botton>
+              <Botton onClick={() => this.props.revisepassword(this.uid, this.old_password, this.new_password, this.comfirm_new_password)}>確認</Botton>
               {loginfailstate ? <Loginfail>修改失敗</Loginfail> : null}
             </LoginBox>
             :
@@ -66,8 +66,8 @@ const mapDisptchToProps = (dispatch) => {
     login(account, password) {
       dispatch(actionCreators.login(account.value, password.value))
     },
-    revisepassword(account, password, old_password, comfirm_new_password) {
-      dispatch(actionCreators.revisepassword(account.value, password.value, old_password.value, comfirm_new_password.value))
+    revisepassword(uid, password, old_password, comfirm_new_password) {
+      dispatch(actionCreators.revisepassword(uid.value, password.value, old_password.value, comfirm_new_password.value))
     }
   }
 }
