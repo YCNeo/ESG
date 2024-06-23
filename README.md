@@ -29,8 +29,8 @@
 
 
 ## Collabration Requirements
-* [swagger](doc\swagger.md)
-* [Function List](doc\function_list.md)
+* [Swagger](doc\Swagger.md)
+* [Function List](doc\Function_List.md)
 * commit syntax
   * feat(scope): commit message
     eg. `feat(login): wireframe`
