@@ -1,13 +1,13 @@
 FROM node:20.12.2
 
-WORKDIR /Worksapce
+WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json /app/
 
 RUN npm install
 
-COPY . ./
+COPY . /app/
 
 EXPOSE 3000
 
-CMD ["node", "app.js"]
+CMD ["npm", "start"]

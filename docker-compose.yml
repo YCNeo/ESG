@@ -3,15 +3,15 @@
 version: "3.8"
 
 services:
-  # backend:
-  #   image: backend
-  #   ports:
-  #     - "8000:8000"
+  backend:
+    image: backend
+    ports:
+      - "8000:8000"
 
-  # frontend:
-  #   image: frontend
-  #   ports:
-  #     - "3000:3000"
+  frontend:
+    image: frontend
+    ports:
+      - "3000:3000"
 
   db:
     image: mysql:8.0.27
