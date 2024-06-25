@@ -54,40 +54,66 @@ class Header extends Component {
     }
   }
 
+  state = {
+    cheatpage: true
+  };
+
+  changecheatpage(cheatpage) {
+    this.setState({ cheatpage: !cheatpage })
+  }
+
   render() {
     const { focused, handleinputfocus, handleinputblur, list, login, logout } = this.props;
+    const { cheatpage } = this.state;
     return (
-      <HeaderWrapper>
-        <div>
-          <Link to='/'><Logo /></Link>
-          <Link to='/'><Jumpbottom>home</Jumpbottom></Link>
-          <Link to='/'><Jumpbottom>test</Jumpbottom></Link>
-        </div>
-        <Nav>
-          <Navitem className="left active">button1</Navitem>
-          {
-            login ?
-              <Navitem onClick={logout} className="right">登出</Navitem> :
-              <Link to='/login'><Navitem className="right">登入</Navitem></Link>
-          }
-          <Navitem className="right">button2</Navitem>
-          <SearchWarpper>
-            <Navsearch
-              className={focused ? 'focused' : ''}
-              onFocus={() => handleinputfocus(list)}
-              onBlur={handleinputblur}
-            ></Navsearch>
-            <i className={focused ? 'focused iconfont' : 'iconfont'}>
-              <FaSearch />
-            </i>
-            {this.getlistarea()}
-          </SearchWarpper>
-        </Nav>
-        <Addition>
-          <Link to='/admin'><Button className="color1">admin</Button></Link>
-          <Button className="color2">test1</Button>
-        </Addition>
-      </HeaderWrapper >
+      <div>
+        {cheatpage ?
+          <div>
+            <HeaderWrapper>
+              <Navitem>page list</Navitem>
+              <Link to='/home' onClick={() => (this.changecheatpage(cheatpage))}><Logo /></Link>
+              <Link to='/'><Jumpbottom>home</Jumpbottom></Link>
+              {
+                login ?
+                  <Jumpbottom onClick={logout}>press to logout</Jumpbottom> :
+                  <Link to='/login'><Jumpbottom>login</Jumpbottom></Link>
+              }
+              <Link to='/admin'><Jumpbottom>admin (need login)</Jumpbottom></Link>
+            </HeaderWrapper>
+          </div>
+          :
+          <HeaderWrapper>
+            <div>
+              <Navitem>hi</Navitem>
+              <Link to='/' onClick={() => (this.changecheatpage(cheatpage))}><Logo /></Link>
+              <Link to='/home'><Jumpbottom>home</Jumpbottom></Link>
+            </div>
+            <Nav>
+              <Navitem className="left active">button1</Navitem>
+              {
+                login ?
+                  <Navitem onClick={logout} className="right">登出</Navitem> :
+                  <Link to='/login'><Navitem className="right">登入</Navitem></Link>
+              }
+              <Navitem className="right">button2</Navitem>
+              <SearchWarpper>
+                <Navsearch
+                  className={focused ? 'focused' : ''}
+                  onFocus={() => handleinputfocus(list)}
+                  onBlur={handleinputblur}
+                ></Navsearch>
+                <i className={focused ? 'focused iconfont' : 'iconfont'}>
+                  <FaSearch />
+                </i>
+                {this.getlistarea()}
+              </SearchWarpper>
+            </Nav>
+            <Addition>
+              <Link to='/admin'><Button className="color1">admin</Button></Link>
+              <Button className="color2">test1</Button>
+            </Addition>
+          </HeaderWrapper >}
+      </div>
     )
   }
 }
@@ -125,7 +151,7 @@ const mapDisptchToProps = (dispatch) => {
         dispatch(actionCreators.changePage(1));
       }
     },
-    logout(){
+    logout() {
       dispatch(loginactionCreators.logout())
     }
   }

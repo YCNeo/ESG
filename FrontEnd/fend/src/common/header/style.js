@@ -25,7 +25,6 @@ font-size: 17px;
 color: #000079;
 float: left;
 position: relative;
-left: 65px;   
 
 margin-top: 6px;
 margin-left: 10px;
@@ -49,6 +48,10 @@ line-height: 56px;
 padding: 0 15px;
 font-size: 17px;
 color: #000079;
+////////////////////
+float: left;
+margin-left: 60px;
+////////////////////
 &.left{
   float: left;
 }
