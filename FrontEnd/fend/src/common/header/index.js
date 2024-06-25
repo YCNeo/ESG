@@ -63,7 +63,7 @@ class Header extends Component {
   }
 
   render() {
-    const { focused, handleinputfocus, handleinputblur, list, login, logout } = this.props;
+    const { focused, handleinputfocus, handleinputblur, list, login, logout, iforgotpassword } = this.props;
     const { cheatpage } = this.state;
     return (
       <div>
@@ -76,15 +76,18 @@ class Header extends Component {
               {
                 login ?
                   <Jumpbottom onClick={logout}>press to logout</Jumpbottom> :
-                  <Link to='/login'><Jumpbottom>login</Jumpbottom></Link>
+                  <div>
+                    <Link to='/login'><Jumpbottom onClick={()=>(iforgotpassword(false))}>login</Jumpbottom></Link>
+                    <Jumpbottom onClick={()=>(iforgotpassword(true))}>revisepassword</Jumpbottom>
+                  </div>
               }
-              <Link to='/admin'><Jumpbottom>admin (need login)</Jumpbottom></Link>
+              <Link to='/admin'><Jumpbottom onClick={()=>(iforgotpassword(false))}>admin (need login)</Jumpbottom></Link>
             </HeaderWrapper>
           </div>
           :
           <HeaderWrapper>
             <div>
-              <Navitem>hi</Navitem>
+              <Navitem>page list</Navitem>
               <Link to='/' onClick={() => (this.changecheatpage(cheatpage))}><Logo /></Link>
               <Link to='/home'><Jumpbottom>home</Jumpbottom></Link>
             </div>
@@ -153,6 +156,9 @@ const mapDisptchToProps = (dispatch) => {
     },
     logout() {
       dispatch(loginactionCreators.logout())
+    },
+    iforgotpassword(value) {
+      dispatch(actionCreators.iforgotpassword(value))
     }
   }
 }
