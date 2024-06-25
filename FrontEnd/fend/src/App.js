@@ -16,7 +16,8 @@ class App extends Component {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path='/' element={<Home />}></Route>
+            <Route path='/' element={<h1>this is main page</h1>}></Route>
+            <Route path='/home' element={<Home />}></Route>
             <Route path='/login' element={<Login />}></Route>
             <Route path='/admin' element={<Admin />}></Route>
             <Route path='/detail/:id' element={<Detail />}></Route>
