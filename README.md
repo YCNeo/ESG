@@ -4,6 +4,10 @@
 
 ## Instruction
 * [meeting record](https://www.notion.so/carbon-c5fb74f4e603481fa5678fa39fa2badb?pvs=4)
+* Run all Docker
+   ```sh
+   docker compose up -d
+   ```
 
 ### FrontEnd
 * Language  [`Node.js`](https://nodejs.org/docs/latest/api/)
