@@ -29,12 +29,12 @@
 
 
 ## Collabration Requirements
-* [Swagger](doc\Swagger.md)
-* [Function List](doc\Function_List.md)
+* [Swagger](doc/Swagger.md)
+* [Function List](doc/Function_List.md)
 * commit syntax
   * feat(scope): commit message
     eg. `feat(login): wireframe`
-    ![commit_syntax](doc\commit_syntax.png)
+    ![commit_syntax](doc/commit_syntax.png)
 
 ## References
 * [Hyperledger](https://github.com/hyperledger/fabric-samples)
