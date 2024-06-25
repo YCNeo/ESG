@@ -1,7 +1,6 @@
-# this docker-compose is not the right version
-# just for test
- 
-version: '3.8'
+# If want to test db, just need to mark the backend and frontend part as comment
+
+version: "3.8"
 
 services:
   backend:
@@ -14,13 +13,23 @@ services:
     ports:
       - "3000:3000"
 
-  database:
-    image: MySQL:latest
+  db:
+    image: mysql:8.0.27
+    restart: always
+      - db-data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydatabase
+      MYSQL_DATABASE: 'ESG_db'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'user'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'password'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      # <Port exposed> : <MySQL Port running inside container>
+      - '5050:5050'
+    volumes:
+      - ESG_db:/var/lib/mysql
 
-  networks:
-    my-network:
-      driver: bridge
-
+volumes:
+  ESG_db:
