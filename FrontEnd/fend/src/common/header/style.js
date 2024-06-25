@@ -25,7 +25,7 @@ font-size: 17px;
 color: #000079;
 float: left;
 position: relative;
-
+cursor: pointer;
 margin-top: 6px;
 margin-left: 10px;
 line-height: 38px;

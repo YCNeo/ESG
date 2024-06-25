@@ -2,7 +2,8 @@ import * as constants from './constants';
 
 const defaultState = {
   login: false,
-  loginfail: false
+  loginfail: false,
+  forgetpassword: false
 }
 
 const reducer = (state = defaultState, action) => {
@@ -13,6 +14,8 @@ const reducer = (state = defaultState, action) => {
       return { ...state, login: action.value }
     case constants.LOG_FAIL:
       return { ...state, loginfail: action.value }
+    case constants.FORGET_PASSWORD_PAGE:
+      return { ...state, forgetpassword: action.value }
     default:
       return state;
   }
