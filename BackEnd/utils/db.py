@@ -1,9 +1,15 @@
 import mysql.connector
+import os
 
-conn = mysql.connector.connect(
-    host = '127.0.0.1',
-    port = 3307,
-    user = "root",
-    password = "carbon2024",
-    database = "ESG_db"
+connection_pool = mysql.connector.pooling.MySQLConnectionPool(
+    pool_name="mypool",
+    pool_size=5,
+    pool_reset_session=True,
+    host=os.getenv('MYSQL_HOST'),
+    user=os.getenv('MYSQL_USER'),
+    password=os.getenv('MYSQL_PASSWORD'),
+    database=os.getenv('MYSQL_DATABASE')
 )
+
+def get_connection():
+    return connection_pool.get_connection()
