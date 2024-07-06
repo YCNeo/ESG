@@ -24,7 +24,7 @@
 </details>
 
 <details>
-<summary><code>REVISE</code> <code><b>/{}</b></code> <code>(Revise an member)</code></summary>
+<summary><code>REVISE</code> <code><b>/{EID}</b></code> <code>(Revise an member)</code></summary>
 
 <br />
 
@@ -35,7 +35,7 @@
 ##### Path Parameters
 | key      | required | data type | description                              |
 | -------- | -------- | --------- | ---------------------------------------- |
-| -------- | -------- | --------- | ---------------------------------------- |
+| EID      | true     | string    |                                          |
 ##### Body
 | key      | required | data type | description                              |
 | -------- | -------- | --------- | ---------------------------------------- |
@@ -51,7 +51,7 @@
 </details>
 
 <details>
-<summary><code>REMOVE</code> <code><b>/{}</b></code> <code>(Remove an member)</code></summary>
+<summary><code>REMOVE</code> <code><b>/{EID}</b></code> <code>(Remove an member)</code></summary>
 
 <br />
 
@@ -73,7 +73,7 @@
 </details>
 
 <details>
-<summary><code>RETRIEVE</code> <code><b>/{}</b></code> <code>(Retrieve the detail of an member )</code></summary>
+<summary><code>RETRIEVE</code> <code><b>/{}</b></code> <code>(Retrieve the detail of an member)</code></summary>
 
 <br />only for admin
 
