@@ -35,6 +35,7 @@ services:
       - 3307:3307
     volumes:
       - ESG_db:/var/lib/mysql
+      #- ./my.cnf:/etc/mysql/conf.d/my.cnf
     environment: 
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: 'ESG_db'
