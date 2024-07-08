@@ -29,7 +29,6 @@ class Accessassignment extends PureComponent {
           <Componentbutton onClick={() => this.props.AAsendinfo(this.user_id, this.access)}>Assign</Componentbutton>
           {AAsend ? (AAsendvalue ? <Sendresult>success</Sendresult> : <Sendresult className='fail'>fail</Sendresult>) : null}
         </ComponentoptionWapper>
-
       </ComponentWapper>
     )
   }

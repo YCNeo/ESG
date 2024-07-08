@@ -39,3 +39,10 @@ export const getlist = () => {
     })
   }
 };
+
+export const iforgotpassword = (value) => {
+  return {
+    type: constants.FORGET_PASSWORD_PAGE,
+    value: value
+  }
+}

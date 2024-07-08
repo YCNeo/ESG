@@ -18,6 +18,10 @@ class Createproject extends PureComponent {
       <ComponentWapper>
         <Componenttitle>Create Project</Componenttitle>
         <ComponentoptionWapper>
+          <Componentindex>Project Name</Componentindex>
+          <Componentinput ref={(input) => { this.project_name = input }} />
+        </ComponentoptionWapper>
+        <ComponentoptionWapper>
           <Componentindex>PM ID</Componentindex>
           <Componentinput ref={(input) => { this.pm_id = input }} />
         </ComponentoptionWapper>
@@ -30,7 +34,7 @@ class Createproject extends PureComponent {
           <Componentinput className='bigbox' ref={(input) => { this.equipment = input }} />
         </ComponentoptionWapper>
         <ComponentoptionWapper>
-          <Componentbutton onClick={() => this.props.CPsendinfo(this.pm_id, this.material, this.equipment)}>Create</Componentbutton>
+          <Componentbutton onClick={() => this.props.CPsendinfo(this.project_name, this.pm_id, this.material, this.equipment)}>Create</Componentbutton>
           {CPsend ? (CPsendvalue ? <Sendresult>success</Sendresult> : <Sendresult className='fail'>fail</Sendresult>) : null}
         </ComponentoptionWapper>
       </ComponentWapper>
@@ -45,8 +49,8 @@ const mapStateToProps = (state) => ({
 
 const mapDisptchToProps = (dispatch) => {
   return {
-    CPsendinfo(pm_id, material, equipment) {
-      dispatch(actionCreators.CPsendinfo(pm_id.value, material.value, equipment.value));
+    CPsendinfo(project_name, pm_id, material, equipment) {
+      dispatch(actionCreators.CPsendinfo(project_name.value, pm_id.value, material.value, equipment.value));
     }
   }
 }

@@ -11,7 +11,7 @@ background: #eee;
 
 export const LoginBox = styled.div`
 width: 350px;
-height: 400px;
+height: 450px;
 margin: 30px auto;
 background: #fff;
 box-shadow: 0 0 8px rgba(0,0,0,.1);

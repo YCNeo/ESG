@@ -26,16 +26,20 @@ class Approve extends PureComponent {
           <Componentinput ref={(input) => { this.pm_id = input }} />
         </ComponentoptionWapper>
         <ComponentoptionWapper>
-          <Componentindex>Material</Componentindex>
-          <Componentinput className='bigbox' ref={(input) => { this.material = input }} />
+          <Componentindex>Time</Componentindex>
+          <Componentinput className='bigbox' ref={(input) => { this.time = input }} />
         </ComponentoptionWapper>
         <ComponentoptionWapper>
-          <Componentindex>Equipment</Componentindex>
-          <Componentinput className='bigbox' ref={(input) => { this.equipment = input }} />
+          <Componentindex>Old Content</Componentindex>
+          <Componentinput className='bigbox' ref={(input) => { this.old_content = input }} />
         </ComponentoptionWapper>
         <ComponentoptionWapper>
-          <Componentbutton onClick={() => this.props.Asendinfo(this.project_id, this.pm_id, this.material, this.equipment)}>Accept</Componentbutton>
-          <Componentbutton onClick={() => this.props.Asendinfo(this.project_id, this.pm_id, this.material, this.equipment)} className='reject' >Reject</Componentbutton>
+          <Componentindex>New Content</Componentindex>
+          <Componentinput className='bigbox' ref={(input) => { this.new_content = input }} />
+        </ComponentoptionWapper>
+        <ComponentoptionWapper>
+          <Componentbutton onClick={() => this.props.Asendinfo(1, this.project_id, this.pm_id, this.time, this.old_content, this.new_content)}>Accept</Componentbutton>
+          <Componentbutton onClick={() => this.props.Asendinfo(0, this.project_id, this.pm_id, this.time, this.old_content, this.new_content)} className='reject' >Reject</Componentbutton>
           {Asend ? (Asendvalue ? <Sendresult>success</Sendresult> : <Sendresult className='fail'>fail</Sendresult>) : null}
         </ComponentoptionWapper>
       </ComponentWapper>
@@ -50,8 +54,8 @@ const mapStateToProps = (state) => ({
 
 const mapDisptchToProps = (dispatch) => {
   return {
-    Asendinfo(project_id, pm_id, material, equipment) {
-      dispatch(actionCreators.Asendinfo(project_id.value, pm_id.value, material.value, equipment.value));
+    Asendinfo(type, project_id, pm_id, time, old_content, new_content) {
+      dispatch(actionCreators.Asendinfo(type, project_id.value, pm_id.value, time.value, old_content.value, new_content.value));
     }
   }
 }
