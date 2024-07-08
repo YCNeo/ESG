@@ -4,6 +4,10 @@
 
 ## Instruction
 * [meeting record](https://www.notion.so/carbon-c5fb74f4e603481fa5678fa39fa2badb?pvs=4)
+* Run all Docker
+   ```sh
+   docker compose up -d
+   ```
 
 ### FrontEnd
 * Language  [`Node.js`](https://nodejs.org/docs/latest/api/)
@@ -24,24 +28,24 @@
 
 ### BlockChain
 * using ***VM*** or ***Docker*** ?
-* Language  [`Solidity`](https://go.dev/doc/effective_go)
+* Language  [`Solidity`](https://docs.soliditylang.org/en/v0.8.26/)
 * Framework [__Hyperledger fabric__](https://github.com/hyperledger/fabric)
 
 
 ## Collabration Requirements
-* [swagger](doc\swagger.md)
-* [Function List](doc\function_list.md)
+* [Swagger](doc/Swagger.md)
+* [Function List](doc/Function_List.md)
 * commit syntax
   * feat(scope): commit message
     eg. `feat(login): wireframe`
-    ![commit_syntax](doc\commit_syntax.png)
+    ![commit_syntax](doc/commit_syntax.png)
 
 ## References
 * [Hyperledger](https://github.com/hyperledger/fabric-samples)
 * [tutorial for building web-app with hyperledger-fabric on YouTube](https://www.youtube.com/watch?v=v2WiqQs_JAs)
 * [docker](https://docs.google.com/presentation/d/1BdtUhk5EEsdc0S6lieSb74vdxuhrK0_zKRcTfe825Wk/edit?usp=sharing)
 * [github: Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-* [go](https://go.dev/doc/effective_go)
+* [Solidity](https://docs.soliditylang.org/en/v0.8.26/)
 * [Node.js](https://nodejs.org/docs/latest/api/)
 * [python 3.9](https://docs.python.org/3.9/)
 * [React](https://react.dev/reference/react)
