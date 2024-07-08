@@ -56,16 +56,3 @@ font-size:30px;
 margin: 10px auto;
 text-align: center;
 `;
-
-export const Loginforgot = styled.div`
-float: right;
-width: auto;
-heigth; 10px;
-padding: 2px 4px;
-text-align: center;
-margin-right: 65px;
-font-size: 13px;
-border-radius: 7px;
-background: #e0e0e0;
-cursor: pointer;
-`;
