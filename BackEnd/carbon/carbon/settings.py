@@ -78,12 +78,17 @@ WSGI_APPLICATION = 'carbon.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'carbon',
-		'USER': 'ESG',
-		'PASSWORD': 'esgdbpassword',
-		'HOST': 'localhost',
-		'PORT': '',
+        'NAME': 'ESG_db',
+        'ENGINE': 'mysql.connector.django',
+        'HOST': '127.0.0.1',
+        'PORT': 3307,
+        'USER': '${MYSQL_USER}',
+        'PASSWORD': '${MYSQL_PASSWORD}',
+        'OPTIONS': {
+          'autocommit': True,
+          'use_oure': True,
+          'init_command': "SET foo='bar';"
+        },
     }
 }
 
