@@ -1,47 +1,32 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import DatePicker from 'react-datepicker';
+import Select from 'react-select';
 import { actionCreators } from '../store';
 import {
   ComponentWapper,
   Componentindex,
-  Componentinput,
   Componentbutton,
   Componenttitle,
   ComponentoptionWapper,
-  Innerpageoption
+  Innerpageoption,
+  DatePickerWrapper,
+  customStyles
 } from '../../../components/style';
 import { table } from '../../../components/function/table';
+import { getboundary } from '../../admin/store/actionCreators';
 
 class Source extends PureComponent {
   state = {
     hoveredBox: null,
+    selectedPN: null,
+    selecetedbid: null,
     pages: [
-      { id: 1, text: 'Retrieve' },
-      { id: 2, text: 'Revise' },
-      { id: 3, text: 'Delete' },
-      { id: 4, text: 'Post' },
+      { id: 1, text: 'Retrieve' }
     ],
-    postFormdata: {
-      ename: '',
-      form: '',
-      ingredient: '',
-      category: ''
-    },
-    retrieveFormdata: {
-      ename: '',
-      form: '',
-      ingredient: '',
-      category: ''
-    },
-    reviseFormdata: {
-      ename: '',
-      form: '',
-      ingredient: '',
-      category: ''
-    },
-    deleteFormdata: {
-      sid: ''
-    },
+    startDate: new Date(),
+    endDate: new Date(),
+    customTimeInput: "",
     display: false
   };
 
@@ -53,127 +38,94 @@ class Source extends PureComponent {
     this.setState({ hoveredBox: null });
   };
 
-  handleInputChange = (event, formType, field) => {
-    const { value } = event.target;
-    this.setState(prevState => ({
-      [formType]: {
-        ...prevState[formType],
-        [field]: value
-      }
-    }));
+  handleTimeInputChange = (field, event) => {
+    this.setState({ [field]: event.target.value });
   };
 
-  revsiedata = (employee) => {
-    this.setState({
-      reviseFormdata: {
-        form: employee.form,
-        ename: employee.ename,
-        ingredient: employee.ingredient,
-        category: employee.category
-      }
-    });
-  }
+  handleDateChange = (field, date) => {
+    this.setState({ [field]: date });
+  };
 
-  deletedata = (employee) => {
-    this.setState({
-      deleteFormdata: { sid: employee.sid }
-    });
-  }
+  handleSelectChange = (field, selectedOptions) => {
+    this.setState({ [field]: selectedOptions });
+  };
 
   whichpage(page, retrieve_source) {
-    const { postFormdata, reviseFormdata, deleteFormdata, retrieveFormdata } = this.state;
+    const { startDate, endDate, customTimeInput, selectedPN, selecetedbid } = this.state;
+    const { boundarylist, pn_list } = this.props;
+    const CustomTimeInput = ({ value, onChange }) => (
+      <input
+        value={value}
+        onChange={onChange}
+        placeholder="HH:mm"
+        className="custom-time-input"
+      />
+    );
+
+    const boundaryOptions = boundarylist.map(item => ({
+      value: item.bid,
+      label: item.name
+    }));
+
+    const pnOptions = pn_list.map(item => ({
+      value: item.pn,
+      label: item.name
+    }));
+
     switch (page) {
-      case 4:
-        {
-          return (
-            <ComponentWapper>
-              <ComponentoptionWapper >
-                <Componentindex>EName</Componentindex>
-                <Componentinput value={postFormdata.ename} onChange={(e) => this.handleInputChange(e, 'postFormdata', 'ename')} />
-              </ComponentoptionWapper >
-              <ComponentoptionWapper>
-                <Componentindex>Form</Componentindex>
-                <Componentinput value={postFormdata.form} onChange={(e) => this.handleInputChange(e, 'postFormdata', 'form')} />
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
-                <Componentindex>Ingredient</Componentindex>
-                <Componentinput value={postFormdata.ingredient} onChange={(e) => this.handleInputChange(e, 'postFormdata', 'ingredient')} />
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
-                <Componentindex>Category</Componentindex>
-                <Componentinput value={postFormdata.category} onChange={(e) => this.handleInputChange(e, 'postFormdata', 'category')} />
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
-                <Componentbutton onClick={() => this.props.sourcepost(postFormdata)}>Post</Componentbutton>
-              </ComponentoptionWapper>
-            </ComponentWapper>
-          );
-        }
-      case 2:
-        {
-          return (
-            <ComponentWapper>
-              <ComponentoptionWapper >
-                <Componentindex>EName</Componentindex>
-                <Componentinput value={reviseFormdata.ename} onChange={(e) => this.handleInputChange(e, 'reviseFormdata', 'ename')} />
-              </ComponentoptionWapper >
-              <ComponentoptionWapper>
-                <Componentindex>Form</Componentindex>
-                <Componentinput value={reviseFormdata.form} onChange={(e) => this.handleInputChange(e, 'reviseFormdata', 'form')} />
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
-                <Componentindex>Ingredient</Componentindex>
-                <Componentinput value={reviseFormdata.ingredient} onChange={(e) => this.handleInputChange(e, 'reviseFormdata', 'ingredient')} />
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
-                <Componentindex>Category</Componentindex>
-                <Componentinput value={reviseFormdata.category} onChange={(e) => this.handleInputChange(e, 'reviseFormdata', 'category')} />
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
-                <Componentbutton onClick={() => this.props.sourcerevise(reviseFormdata)}>Revise</Componentbutton>
-              </ComponentoptionWapper>
-            </ComponentWapper>
-          );
-        }
-      case 3:
-        {
-          return (
-            <ComponentWapper>
-              <ComponentoptionWapper >
-                <Componentindex>SID</Componentindex>
-                <Componentinput value={deleteFormdata.sid} onChange={(e) => this.handleInputChange(e, 'deleteFormdata', 'sid')} />
-              </ComponentoptionWapper >
-              <ComponentoptionWapper>
-                <Componentbutton className='reject' onClick={() => this.props.sourcedelete(deleteFormdata)}>Delete</Componentbutton>
-              </ComponentoptionWapper>
-            </ComponentWapper>
-          );
-        }
       case 1:
         {
           return (
             <ComponentWapper>
               <ComponentoptionWapper >
-                <Componentindex>EName</Componentindex>
-                <Componentinput value={retrieveFormdata.ename} onChange={(e) => this.handleInputChange(e, 'retrieveFormdata', 'ename')} />
+                <Componentindex>BID</Componentindex>
+                <Select
+                  placeholder="Select bid"
+                  options={boundaryOptions}
+                  value={selecetedbid}
+                  onChange={(e) => (this.handleSelectChange('selecetedbid', e))}
+                  styles={customStyles}
+                />
               </ComponentoptionWapper >
               <ComponentoptionWapper>
-                <Componentindex>Form</Componentindex>
-                <Componentinput value={retrieveFormdata.form} onChange={(e) => this.handleInputChange(e, 'retrieveFormdata', 'form')} />
+                <Componentindex>PN ID</Componentindex>
+                <Select
+                  placeholder="Select pn"
+                  options={pnOptions}
+                  value={selectedPN}
+                  onChange={(e) => (this.handleSelectChange('selectedPN', e))}
+                  styles={customStyles}
+                />
+              </ComponentoptionWapper>
+              <ComponentoptionWapper >
+                <Componentindex>Start Date</Componentindex>
+                <DatePickerWrapper>
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => this.handleDateChange('startDate', date)}
+                    dateFormat="yyyy/MM/dd"
+                    timeCaption="time"
+                    customTimeInput={<CustomTimeInput value={customTimeInput} onChange={(e) => this.handleTimeInputChange('customTimeInput', e)} />}
+                  />
+                </DatePickerWrapper>
+              </ComponentoptionWapper >
+              <ComponentoptionWapper>
+                <Componentindex>End Date</Componentindex>
+                <DatePickerWrapper>
+                  <DatePicker
+                    selected={endDate}
+                    onChange={(date) => this.handleDateChange('endDate', date)}
+                    dateFormat="yyyy/MM/dd"
+                    timeCaption="time"
+                    customTimeInput={<CustomTimeInput value={customTimeInput} onChange={(e) => this.handleTimeInputChange('customTimeInput', e)} />}
+                  />
+                </DatePickerWrapper>
               </ComponentoptionWapper>
               <ComponentoptionWapper>
-                <Componentindex>Ingredient</Componentindex>
-                <Componentinput value={retrieveFormdata.ingredient} onChange={(e) => this.handleInputChange(e, 'retrieveFormdata', 'ingredient')} />
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
-                <Componentindex>Category</Componentindex>
-                <Componentinput value={retrieveFormdata.category} onChange={(e) => this.handleInputChange(e, 'retrieveFormdata', 'category')} />
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
-                <Componentbutton onClick={() => { this.props.sourceretrieve(retrieveFormdata); this.setState({ display: true }); }}>Retrieve</Componentbutton>
+                <Componentbutton onClick={() => { this.props.sourceretrieve(selecetedbid, selectedPN, startDate, endDate); this.setState({ display: true }); }}>Retrieve</Componentbutton>
               </ComponentoptionWapper>
               {this.state.display ?
-                <div>{table(retrieve_source, this.props.setsourcepage, this.revsiedata, this.deletedata)}</div>
+                <div>{table(retrieve_source, this.props.setsourcepage, null, null, 0)}</div>
                 :
                 ''}
             </ComponentWapper>
@@ -209,11 +161,18 @@ class Source extends PureComponent {
       </ComponentWapper>
     )
   }
+
+  componentDidMount() {
+    this.props.getpn();
+    this.props.getboundary();
+  }
 }
 
 const mapStateToProps = (state) => ({
   sourcepage: state.esg.sourcepage,
-  retrieve_source: state.esg.retrieve_source
+  retrieve_source: state.esg.retrieve_source,
+  pn_list: state.esg.pn_list,
+  boundarylist: state.admin.boundarylist
 });
 
 const mapDisptchToProps = (dispatch) => {
@@ -221,21 +180,16 @@ const mapDisptchToProps = (dispatch) => {
     setsourcepage(id) {
       dispatch(actionCreators.setsourcepage(id));
     },
-    sourcepost(postFormdata) {
-      const { ename, form, ingredient, category } = postFormdata
-      dispatch(actionCreators.sourcepost(ename, form, ingredient, category));
+    getpn() {
+      dispatch(actionCreators.getpn());
     },
-    sourceretrieve(retrieveFormdata) {
-      const { ename, form, ingredient, category } = retrieveFormdata
-      dispatch(actionCreators.sourceretrieve(ename, form, ingredient, category));
+    getboundary() {
+      dispatch(getboundary());
     },
-    sourcedelete(deleteFormdata) {
-      const { sid } = deleteFormdata
-      dispatch(actionCreators.sourcedelete(sid))
-    },
-    sourcerevise(reviseFormdata) {
-      const { ename, form, ingredient, category } = reviseFormdata
-      dispatch(actionCreators.sourcerevise(ename, form, ingredient, category));
+    sourceretrieve(selecetedbid, selectedPN, startdate, enddate) {
+      const startDate = startdate.toISOString().split('T')[0];
+      const endDate = enddate.toISOString().split('T')[0];
+      dispatch(actionCreators.sourceretrieve(selecetedbid.value, selectedPN.value, startDate, endDate));
     }
   }
 }

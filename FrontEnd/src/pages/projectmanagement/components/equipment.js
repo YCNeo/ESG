@@ -139,7 +139,7 @@ class Equipment extends PureComponent {
                 <Componentbutton onClick={() => { this.props.equipmentretrieve(retrieveFormData); this.setState({ display: true }); }}>Retrieve</Componentbutton>
               </ComponentoptionWapper>
               {this.state.display ?
-                <div>{table(retrieve_equipment, this.props.setequipmentpage, this.revsiedata, null)}</div>
+                <div>{table(retrieve_equipment, this.props.setequipmentpage, this.revsiedata, null, localStorage.getItem("pm_rank") === "pm" ? 1 : 0)}</div>
                 :
                 ''}
             </ComponentWapper>

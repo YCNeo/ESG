@@ -34,7 +34,6 @@ class Material extends PureComponent {
       age: '',
       startDate: new Date(),
       disposalDate: new Date(),
-      endDate: new Date(),
       customTimeInput: ""
     },
     deleteFormdata: {
@@ -163,21 +162,6 @@ class Material extends PureComponent {
                 <Componentinput value={postFormdata.age} onChange={(e) => this.handleInputChange(e, 'postFormdata', 'age')} />
               </ComponentoptionWapper >
               <ComponentoptionWapper>
-                <Componentindex>Expire Date</Componentindex>
-                <DatePickerWrapper>
-                  <DatePicker
-                    selected={postFormdata.endDate}
-                    onChange={(date) => this.handleDateChange('endDate', date)}
-                    showTimeSelect
-                    timeFormat="HH:mm"
-                    timeIntervals={30}
-                    dateFormat="yyyy/MM/dd HH:mm"
-                    timeCaption="time"
-                    customTimeInput={<CustomTimeInput value={postFormdata.customTimeInput} onChange={(e) => this.handleTimeInputChange('customTimeInput', e)} />}
-                  />
-                </DatePickerWrapper>
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
                 <Componentbutton onClick={() => this.props.materialpost(postFormdata)}>Post</Componentbutton>
               </ComponentoptionWapper>
             </ComponentWapper>
@@ -221,7 +205,7 @@ class Material extends PureComponent {
                 <Componentbutton onClick={() => { this.props.materialretrieve(retrieveFormdata); this.setState({ display: true }); }}>Retrieve</Componentbutton>
               </ComponentoptionWapper>
               {this.state.display ?
-                <div>{table(retrieve_material, this.props.setmaterialpage, null, this.deletedata)}</div>
+                <div>{table(retrieve_material, this.props.setmaterialpage, null, this.deletedata, localStorage.getItem("authority") === "admin" ? 1 : 0)}</div>
                 :
                 ''}
             </ComponentWapper>
@@ -280,16 +264,16 @@ const mapDisptchToProps = (dispatch) => {
       dispatch(actionCreators.setmaterialpage(id));
     },
     materialpost(postFormdata) {
-      const { name, supplier_name, amount, unit, factor, startDate, disposalDate, age, endDate } = postFormdata
-      dispatch(actionCreators.materialpost(name, supplier_name, amount, unit, factor, startDate, disposalDate, age, endDate));
+      const { name, supplier_name, amount, unit, factor, startDate, disposalDate, age } = postFormdata
+      dispatch(actionCreators.materialpost(1, name, supplier_name, amount, unit, factor, startDate, disposalDate, age));
     },
     materialretrieve(retrieveFormdata) {
       const { name, supplier_name, mid } = retrieveFormdata
-      dispatch(actionCreators.materialretrieve(name, supplier_name, mid));
+      dispatch(actionCreators.materialretrieve(1, name, supplier_name, mid));
     },
     materialdelete(deleteFormdata) {
       const { name, mid } = deleteFormdata
-      dispatch(actionCreators.materialdelete(name, mid));
+      dispatch(actionCreators.materialdelete(1, name, mid));
     },
   }
 }

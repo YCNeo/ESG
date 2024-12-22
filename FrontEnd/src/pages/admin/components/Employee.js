@@ -198,7 +198,7 @@ class Employee extends PureComponent {
                 <Componentbutton onClick={() => { this.props.employeeretrieve(retrieveFormData); this.setState({ display: true }) }}>Retrieve</Componentbutton>
               </ComponentoptionWapper>
               {this.state.display ?
-                <div>{table(retrieve_employee, this.props.setpage, this.revsiedata, this.deletedata)}</div>
+                <div>{table(retrieve_employee, this.props.setpage, this.revsiedata, this.deletedata, localStorage.getItem("authority") === "admin" ? 2 : 0)}</div>
                 :
                 ''}
             </ComponentWapper>

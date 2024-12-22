@@ -6,6 +6,7 @@ const defaultState = {
   sourcepage: 1,
   statementpage: 1,
   auditpage: 1,
+  pn_list: [],
   retrieve_boundary: [],
   retrieve_source: [],
   retrieve_statement: []
@@ -52,6 +53,11 @@ const reducer = (state = defaultState, action) => {
       return {
         ...state,
         retrieve_statement: action.retrieve_statement,
+      };
+    case constants.PN_LIST:
+      return {
+        ...state,
+        pn_list: action.pn_list,
       };
     default:
       return state;

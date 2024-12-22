@@ -36,7 +36,6 @@ class Equipment extends PureComponent {
       age: '',
       startDate: new Date(),
       disposalDate: new Date(),
-      endDate: new Date(),
       customTimeInput: ""
     },
     deleteFormdata: {
@@ -167,21 +166,6 @@ class Equipment extends PureComponent {
                 <Componentinput value={postFormdata.age} onChange={(e) => this.handleInputChange(e, 'postFormdata', 'age')} />
               </ComponentoptionWapper >
               <ComponentoptionWapper>
-                <Componentindex>Expire Date</Componentindex>
-                <DatePickerWrapper>
-                  <DatePicker
-                    selected={postFormdata.endDate}
-                    onChange={(date) => this.handleDateChange('endDate', date)}
-                    showTimeSelect
-                    timeFormat="HH:mm"
-                    timeIntervals={30}
-                    dateFormat="yyyy/MM/dd HH:mm"
-                    timeCaption="time"
-                    customTimeInput={<CustomTimeInput value={postFormdata.customTimeInput} onChange={(e) => this.handleTimeInputChange('customTimeInput', e)} />}
-                  />
-                </DatePickerWrapper>
-              </ComponentoptionWapper>
-              <ComponentoptionWapper>
                 <Componentbutton onClick={() => this.props.equipmentpost(postFormdata)}>Post</Componentbutton>
               </ComponentoptionWapper>
             </ComponentWapper>
@@ -221,7 +205,7 @@ class Equipment extends PureComponent {
                 <Componentbutton onClick={() => { this.props.equipmentretrieve(retrieveFormdata); this.setState({ display: true }); }}>Retrieve</Componentbutton>
               </ComponentoptionWapper>
               {this.state.display ?
-                <div>{table(retrieve_equipment, this.props.setequipmentpage, null, this.deletedata)}</div>
+                <div>{table(retrieve_equipment, this.props.setequipmentpage, null, this.deletedata, localStorage.getItem("authority") === "admin" ? 1 : 0)}</div>
                 :
                 ''}
             </ComponentWapper>
@@ -308,16 +292,16 @@ const mapDisptchToProps = (dispatch) => {
       dispatch(actionCreators.setequipmentpage(id));
     },
     equipmentpost(postFormdata) {
-      const { name, supplier_name, amount, unit, factor, startDate, disposalDate, age, endDate } = postFormdata
-      dispatch(actionCreators.equipmentpost(name, supplier_name, amount, unit, factor, startDate, disposalDate, age, endDate));
+      const { name, supplier_name, amount, unit, factor, startDate, disposalDate, age } = postFormdata
+      dispatch(actionCreators.equipmentpost(1, name, supplier_name, amount, unit, factor, startDate, disposalDate, age));
     },
     equipmentretrieve(retrieveFormdata) {
       const { name, supplier_name, eqid } = retrieveFormdata
-      dispatch(actionCreators.equipmentretrieve(name, supplier_name, eqid));
+      dispatch(actionCreators.equipmentretrieve(1, name, supplier_name, eqid));
     },
     equipmentdelete(deleteFormdata) {
       const { eqid } = deleteFormdata
-      dispatch(actionCreators.equipmentdelete(eqid));
+      dispatch(actionCreators.equipmentdelete(1, eqid));
     },
     equipmentpostrepair(postrepairFormdata) {
       const { repair_date, eqid } = postrepairFormdata
