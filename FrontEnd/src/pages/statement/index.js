@@ -14,12 +14,7 @@ import {
   Componentcheckbox,
   Componentbutton,
   customStyles,
-  PMcustomStyles,
-  CheckItem,
-  Checkbutton,
-  DatePickerWrapper,
-  Chartselect,
-  Option
+  DatePickerWrapper
 } from '../../components/style';
 import { barchart, linechart, piechart } from '../../components/function/chart';
 import { table } from '../../components/function/table';
@@ -28,28 +23,9 @@ class Statement extends PureComponent {
   state = {
     selectedProject: null,
     allProjectSelected: false,
-    chart: 0,
-    chartlist: [
-      { id: 1, name: "bar chart" },
-      { id: 2, name: "line chart" },
-      { id: 3, name: "pie chart" }
-    ],
-    yoption: [
-      { value: 1, label: "time" },
-      { value: 2, label: "carbon emission" }
-    ],
-    xoption: [
-      { value: 3, label: "project" },
-      { value: 4, label: "PN" }
-    ],
     startDate: new Date(),
     endDate: new Date(),
     customTimeInput: "",
-    xyaxis: [
-      { xaxis: 1, yaxis: 1 },
-      { xaxis: 1, yaxis: 1 },
-      { xaxis: 1, yaxis: 1 }
-    ],
     display: false
   };
 
@@ -77,26 +53,12 @@ class Statement extends PureComponent {
     this.setState({ [field]: event.target.value });
   };
 
-  setchart = (id) => {
-    this.setState({ chart: id });
-  }
-
-  handleSelectChangexy = (selectedOptions, type, index) => {
-    this.setState(prevState => {
-      const newArray = [...prevState.xyaxis];
-      newArray[index][`${type}axis`] = selectedOptions;
-      return { xyaxis: newArray };
-    });
-  }
-
   renderChart = (projectdata) => {
-    const { xyaxis } = this.state;
-
     return (
       <Componentcheckbox>
-        {barchart(projectdata, xyaxis[0].xaxis, xyaxis[0].yaxis)}
-        {linechart(projectdata, xyaxis[1].xaxis, xyaxis[1].yaxis)}
-        {piechart(projectdata, xyaxis[2].xaxis, xyaxis[2].yaxis)}
+        {barchart(projectdata)}
+        {linechart(projectdata)}
+        {piechart(projectdata)}
       </Componentcheckbox>
     )
   }
@@ -108,7 +70,7 @@ class Statement extends PureComponent {
 
   render() {
     const { projectlist, projectdata } = this.props;
-    const { selectedProject, startDate, endDate, customTimeInput, chart, chartlist, xoption, yoption, xyaxis } = this.state;
+    const { selectedProject, startDate, endDate, customTimeInput } = this.state;
     const receiveprojectdata = this.mergeArrays(projectdata);
 
     const projectOptions = projectlist.map(item => ({
@@ -173,50 +135,11 @@ class Statement extends PureComponent {
               </DatePickerWrapper>
             </ComponentoptionWapper>
             <ComponentoptionWapper>
-              <Componentindex>生成圖表</Componentindex>
-              <Componentcheckbox>
-                {
-                  chartlist.map((item) => (
-                    <CheckItem key={item.id} >
-                      <Checkbutton
-                        onClick={() => this.setchart(item.id)}
-                        className={chart === item.id ? 'checked' : ''}
-                      ></Checkbutton>
-                      <Option>{item.name}</Option>
-                      <Chartselect>
-                        {item.id === 3 ? "classification basis" : "x-axis:"}
-                        &nbsp;&nbsp;
-                        <Select
-                          placeholder="Select x"
-                          options={xoption}
-                          value={xyaxis[item.id - 1].xaxis}
-                          onChange={(value) => this.handleSelectChangexy(value, "x", item.id - 1)}
-                          styles={PMcustomStyles}
-                        />
-                      </Chartselect>
-                      {item.id === 3 ? '' :
-                        <Chartselect>
-                          y-axis:&nbsp;&nbsp;
-                          <Select
-                            placeholder="Select x"
-                            options={yoption}
-                            value={xyaxis[item.id - 1].yaxis}
-                            onChange={(value) => this.handleSelectChangexy(value, "y", item.id - 1)}
-                            styles={PMcustomStyles}
-                          />
-                        </Chartselect>
-                      }
-                    </CheckItem>
-                  ))
-                }
-              </Componentcheckbox>
-            </ComponentoptionWapper>
-            <ComponentoptionWapper>
-              <Componentbutton onClick={() => { this.props.sendinfo(selectedProject, startDate, endDate, chart); this.setState({ display: true }) }}>Create</Componentbutton>
+              <Componentbutton onClick={() => { this.props.sendinfo(selectedProject); this.setState({ display: true }) }}>Create</Componentbutton>
             </ComponentoptionWapper>
             {this.state.display ?
               <ComponentoptionWapper className='statement'>
-                {table(receiveprojectdata, null, null, null)}
+                {table(receiveprojectdata, null, null, null, 0)}
                 <Componentcheckbox>
                   {this.renderChart(receiveprojectdata)}
                 </Componentcheckbox>
