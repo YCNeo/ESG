@@ -338,7 +338,7 @@ class Dailyrecord extends PureComponent {
                 <Componentbutton onClick={() => { this.props.dailyrecordretrieve(retrieveFormdata); this.setState({ display: true }); }}>Retrieve</Componentbutton>
               </ComponentoptionWapper>
               {this.state.display ?
-                <div>{table(retrieve_dailyrecord, null, null, null)}</div>
+                <div>{table(retrieve_dailyrecord, null, null, null, localStorage.getItem("pm_rank") === "pm" ? 0 : 0)}</div>
                 :
                 ''}
             </ComponentWapper>

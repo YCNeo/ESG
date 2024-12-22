@@ -19,7 +19,7 @@ class BoundaryEdition extends PureComponent {
       { id: 1, text: 'Retrieve' },
       { id: 2, text: 'Revise' },
       { id: 3, text: 'Delete' },
-      { id: 4, text:  'Post'}
+      { id: 4, text: 'Post' }
     ],
     postFormdata: {
       name: '',
@@ -74,7 +74,7 @@ class BoundaryEdition extends PureComponent {
     });
   }
 
-  whichpage(page, retrieve_boundary) {
+  whichpage(page, retrieve_boundary, EID) {
     const { postFormdata, reviseFormdata, deleteFormdata, retrieveFormdata } = this.state;
     switch (page) {
       case 4:
@@ -94,7 +94,7 @@ class BoundaryEdition extends PureComponent {
                 <Componentinput value={postFormdata.type} onChange={(e) => this.handleInputChange(e, 'postFormdata', 'type')} />
               </ComponentoptionWapper>
               <ComponentoptionWapper>
-                <Componentbutton onClick={() => this.props.boundary_editionpost(postFormdata)}>Post</Componentbutton>
+                <Componentbutton onClick={() => this.props.boundary_editionpost(postFormdata, EID)}>Post</Componentbutton>
               </ComponentoptionWapper>
             </ComponentWapper>
           );
@@ -113,7 +113,7 @@ class BoundaryEdition extends PureComponent {
                 <Componentinput value={reviseFormdata.address} onChange={(e) => this.handleInputChange(e, 'reviseFormdata', 'address')} />
               </ComponentoptionWapper>
               <ComponentoptionWapper>
-                <Componentbutton onClick={() => this.props.boundary_editionrevise(reviseFormdata)}>Revise</Componentbutton>
+                <Componentbutton onClick={() => this.props.boundary_editionrevise(reviseFormdata, EID)}>Revise</Componentbutton>
               </ComponentoptionWapper>
             </ComponentWapper>
           );
@@ -152,7 +152,7 @@ class BoundaryEdition extends PureComponent {
                 <Componentbutton onClick={() => { this.props.boundary_editionretrieve(retrieveFormdata); this.setState({ display: true }); }}>Retrieve</Componentbutton>
               </ComponentoptionWapper>
               {this.state.display ?
-                <div>{table(retrieve_boundary, this.props.setboundary_editionpage, this.revsiedata, this.deletedata)}</div>
+                <div>{table(retrieve_boundary, this.props.setboundary_editionpage, this.revsiedata, this.deletedata, localStorage.getItem("authority") === "admin" ? 2 : 0)}</div>
                 :
                 ''}
             </ComponentWapper>
@@ -164,7 +164,7 @@ class BoundaryEdition extends PureComponent {
   }
 
   render() {
-    const { setboundary_editionpage, boundary_editionpage, retrieve_boundary } = this.props;
+    const { setboundary_editionpage, boundary_editionpage, retrieve_boundary, EID } = this.props;
     const { hoveredBox, pages } = this.state;
     return (
       <ComponentWapper>
@@ -184,7 +184,7 @@ class BoundaryEdition extends PureComponent {
             )
           ))}
         </ComponentoptionWapper>
-        {this.whichpage(boundary_editionpage, retrieve_boundary)}
+        {this.whichpage(boundary_editionpage, retrieve_boundary, EID)}
       </ComponentWapper>
     )
   }
@@ -192,7 +192,8 @@ class BoundaryEdition extends PureComponent {
 
 const mapStateToProps = (state) => ({
   boundary_editionpage: state.esg.boundary_editionpage,
-  retrieve_boundary: state.esg.retrieve_boundary
+  retrieve_boundary: state.esg.retrieve_boundary,
+  EID: state.login.EID
 });
 
 const mapDisptchToProps = (dispatch) => {
@@ -200,17 +201,17 @@ const mapDisptchToProps = (dispatch) => {
     setboundary_editionpage(id) {
       dispatch(actionCreators.setboundary_editionpage(id));
     },
-    boundary_editionpost(postFormdata) {
+    boundary_editionpost(postFormdata, EID) {
       const { name, address, type } = postFormdata
-      dispatch(actionCreators.boundary_editionpost(name, address, type));
+      dispatch(actionCreators.boundary_editionpost(name, address, type, EID));
     },
     boundary_editionretrieve(retrieveFormdata) {
       const { bid, name, type } = retrieveFormdata
       dispatch(actionCreators.boundary_editionretrieve(bid, name, type));
     },
-    boundary_editionrevise(reviseFormdata) {
+    boundary_editionrevise(reviseFormdata, EID) {
       const { bid, address } = reviseFormdata
-      dispatch(actionCreators.boundary_editionrevise(bid, address));
+      dispatch(actionCreators.boundary_editionrevise(bid, address, EID));
     },
     boundary_editiondelete(deleteFormdata) {
       const { bid } = deleteFormdata

@@ -20,9 +20,9 @@ export const setequipmentpage = (page) => ({
 });
 
 ///////////////////////////material/////////////////////////////////////
-export const materialpost = (name, supplier, amount, unit, factor, purchaseDate, disposalDate, age, EXPDate) => {
+export const materialpost = (status, name, supplier, amount, unit, factor, purchaseDate, disposalDate, age, EXPDate) => {
   return (dispatch) => {
-    axios./*正是對接時用post*/get('/api/member.json', { name, supplier, amount, unit, factor, purchaseDate, age, disposalDate, EXPDate }).then((res) => {
+    axios./*正是對接時用post*/get('/api/member.json', { status, name, supplier, amount, unit, factor, purchaseDate, age, disposalDate, EXPDate }).then((res) => {
       const result = res.data;
       result ? alert('success') : alert('fail')
     }).catch((error) => {
@@ -31,9 +31,9 @@ export const materialpost = (name, supplier, amount, unit, factor, purchaseDate,
   }
 }
 
-export const materialretrieve = (name, supplier, MID) => {
+export const materialretrieve = (status, name, supplier, MID) => {
   return (dispatch) => {
-    axios./*正是對接時用post*/get('/api/ppematerialretrieve.json', { MID, name, supplier }).then((res) => {
+    axios./*正是對接時用post*/get('/api/ppematerialretrieve.json', { status, MID, name, supplier }).then((res) => {
       const result = res.data;
       dispatch({
         type: constants.RETRIEVE_MATERIAL,
@@ -46,9 +46,9 @@ export const materialretrieve = (name, supplier, MID) => {
   }
 }
 
-export const materialdelete = (name, MID) => {
+export const materialdelete = (status, name, MID) => {
   return (dispatch) => {
-    axios./*正是對接時用post*/get('/api/member.json', { name, MID }).then((res) => {
+    axios./*正是對接時用post*/get('/api/member.json', { status, name, MID }).then((res) => {
       const result = res.data;
       result ? alert('success') : alert('fail')
     }).catch((error) => {
@@ -57,9 +57,9 @@ export const materialdelete = (name, MID) => {
   }
 }
 ///////////////////////////eqipment//////////////////////////////////////
-export const equipmentpost = (name, supplier, amount, unit, factor, purchaseDate, disposalDate, age, ageUnit) => {
+export const equipmentpost = (status, name, supplier, amount, unit, factor, purchaseDate, disposalDate, age, ageUnit) => {
   return (dispatch) => {
-    axios./*正是對接時用post*/get('/api/member.json', { name, supplier, amount, unit, factor, purchaseDate, disposalDate, age, ageUnit }).then((res) => {
+    axios./*正是對接時用post*/get('/api/member.json', { status, name, supplier, amount, unit, factor, purchaseDate, disposalDate, age, ageUnit }).then((res) => {
       const result = res.data;
       result ? alert('success') : alert('fail')
     }).catch((error) => {
@@ -79,9 +79,9 @@ export const equipmentpostrepair = (date, EQID) => {
   }
 }
 
-export const equipmentretrieve = (name, supplier, EQIP) => {
+export const equipmentretrieve = (status, name, supplier, EQIP) => {
   return (dispatch) => {
-    axios./*正是對接時用post*/get('/api/ppeequipmentretrieve.json', { EQIP, name, supplier }).then((res) => {
+    axios./*正是對接時用post*/get('/api/ppeequipmentretrieve.json', { status, EQIP, name, supplier }).then((res) => {
       const result = res.data;
       dispatch({
         type: constants.RETRIEVE_EQUIPMENT,
@@ -94,9 +94,9 @@ export const equipmentretrieve = (name, supplier, EQIP) => {
   }
 }
 
-export const equipmentdelete = (EQIP) => {
+export const equipmentdelete = (status, EQIP) => {
   return (dispatch) => {
-    axios./*正是對接時用post*/get('/api/member.json', { EQIP }).then((res) => {
+    axios./*正是對接時用post*/get('/api/member.json', { status, EQIP }).then((res) => {
       const result = res.data;
       result ? alert('success') : alert('fail')
     }).catch((error) => {

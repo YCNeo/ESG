@@ -45,16 +45,6 @@ class Statement extends PureComponent {
     this.setState({ [field]: date });
   };
 
-  handleInputChange = (event, formType, field) => {
-    const { value } = event.target;
-    this.setState(prevState => ({
-      [formType]: {
-        ...prevState[formType],
-        [field]: value
-      }
-    }));
-  };
-
   handleSelectChange = (selectedOptions) => {
     this.setState({ selecedBoundary: selectedOptions });
   };
@@ -121,7 +111,7 @@ class Statement extends PureComponent {
                 <Componentbutton onClick={() => { this.props.statementretrieve(startDate, endDate, selecedBoundary); this.setState({ display: true }); }}>Retrieve</Componentbutton>
               </ComponentoptionWapper>
               {this.state.display ?
-                <div>{table(retrieve_statement, null, null, null)}</div>
+                <div>{table(retrieve_statement, null, null, null, 0)}</div>
                 :
                 ''}
             </ComponentWapper>
@@ -175,10 +165,10 @@ const mapDisptchToProps = (dispatch) => {
     statementretrieve(startdate, enddate, Boundarylist) {
       const startDate = startdate.toISOString().split('T')[0];
       const endDate = enddate.toISOString().split('T')[0];
-      const selecedBoundary = Boundarylist.map(option => {
+      const selecedBoundary = Boundarylist ? Boundarylist.map(option => {
         const { value: bid } = option;
         return { bid };
-      })
+      }) : [];
       dispatch(actionCreators.statementretrieve(startDate, endDate, selecedBoundary));
     },
     getboundary() {

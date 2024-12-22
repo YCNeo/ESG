@@ -139,7 +139,7 @@ class Material extends PureComponent {
                 <Componentbutton onClick={() => { this.props.materialretrieve(retrieveFormData); this.setState({ display: true }); }}>Retrieve</Componentbutton>
               </ComponentoptionWapper>
               {this.state.display ?
-                <div>{table(retrieve_material, this.props.setmaterialpage, this.revsiedata, null)}</div>
+                <div>{table(retrieve_material, this.props.setmaterialpage, this.revsiedata, null, localStorage.getItem("pm_rank") === "pm" ? 1 : 0)}</div>
                 :
                 ''}
             </ComponentWapper>

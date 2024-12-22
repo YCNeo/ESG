@@ -181,7 +181,7 @@ class Member extends PureComponent {
               <Componentbutton onClick={() => { this.props.memberretrieve(retrieveFormData); this.setState({ display: true }); }}>Retrieve</Componentbutton>
             </ComponentoptionWapper>
             {this.state.display ?
-              <div>{table(retrieve_member, this.props.setmemberpage, this.revsiedata, this.deletedata)}</div>
+              <div>{table(retrieve_member, this.props.setmemberpage, this.revsiedata, this.deletedata, localStorage.getItem("authority") === "admin" ? 2 : 0)}</div>
               :
               ''}
           </ComponentWapper>
