@@ -171,11 +171,8 @@ const mapDispatchToProps = (dispatch) => {
     },
     sendinfo(selectedProject) {
       const projectChecked = selectedProject
-        ? selectedProject.map(option => {
-          const { value: PID, label: pname } = option;
-          return { PID, pname };
-        })
-        : [];
+      ? selectedProject.map(option => option.value)
+      : [];
       dispatch(actionCreators.sendinfo(projectChecked));
     }
   }
