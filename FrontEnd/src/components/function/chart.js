@@ -9,7 +9,7 @@ function mergeData(projectData, type) {
 
     const modifiedItem = {
       ...item,
-      amount: item.amount * item.unit * item.current_factor
+      amount: Math.round(item.amount * item.runtime * item.current_factor)
     };
 
     const key = type !== 'date'
@@ -47,9 +47,9 @@ export const linechart = (projectData) => {
 }
 
 export const barchart = (projectData) => {
-  const xaxis = "PN_name";
+  const xaxis = "PPN_name";
   const yaxis = "amount";
-  const mergedData = mergeData(projectData, "PN_name");
+  const mergedData = mergeData(projectData, "PPN_name");
   return (
     <BarChart width={500} height={300} data={mergedData} margin={{ top: 5, right: 30, left: 20, bottom: 5, }}>
       <CartesianGrid strokeDasharray="3 3" />
@@ -63,14 +63,14 @@ export const barchart = (projectData) => {
 }
 
 export const piechart = (projectData) => {
-  const mergedData = mergeData(projectData, "Pname");
+  const mergedData = mergeData(projectData, "PName");
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const currentData = payload[0].payload;
       return (
         <div style={{ backgroundColor: "#fff", border: "1px solid #ccc", padding: "5px" }}>
-          <p>{`${currentData.Pname}`}</p>
+          <p>{`${currentData.PName}`}</p>
           <p>{`Amount: ${currentData.amount}`}</p>
         </div>
       );
